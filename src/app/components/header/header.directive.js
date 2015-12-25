@@ -26,6 +26,15 @@ function Controller(problemsDialog) {
   vm.showProblemsDialog();
 
   function selectDialog(event) {
-    problemsDialog.show(event);
+    problemsDialog.show(event)
+      .then(selectionCompleted)
+      .catch(selectionCanceled);
+
+    function selectionCompleted(problem) {
+      vm.text = problem.text;
+    }
+
+    function selectionCanceled() {
+    }
   }
 }

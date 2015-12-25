@@ -27,8 +27,19 @@ function problemsDialog($document, $mdDialog, dataService) {
 }
 
 /* @ngInject */
-function DialogController (problems) {
+function DialogController ($mdDialog, problems) {
   let vm = this;
 
   vm.problems = problems;
+  vm.answer = answer;
+  vm.cancel = cancel;
+
+
+  function answer(problem) {
+    $mdDialog.hide(problem);
+  }
+
+  function cancel() {
+    $mdDialog.cancel();
+  }
 }
