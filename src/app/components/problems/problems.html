@@ -1,0 +1,32 @@
+<md-dialog>
+  <form>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>בחר בעיה...</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="cancel()">
+          <md-icon md-svg-src="assets/images/icons/ic_close_white_48px.svg" aria-label="Close dialog"></md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-dialog-content>
+      <md-list>
+        <md-list-item class="md-2-line" ng-repeat="problem in vm.problems">
+          <div class="md-list-item-text" ng-class="{'md-offset': problem.difficulty === 1 }" layout="column">
+            <h3>{{ problem.text }}</h3>
+            <p>{{ problem.text }}</p>
+          </div>
+          <md-divider ng-if="!$last"></md-divider>
+        </md-list-item>
+      </md-list>
+    </md-dialog-content>
+    <md-dialog-actions layout="row" layout-algin="start ceneter">
+      <md-button ng-click="answer('not useful')">
+        בטל
+      </md-button>
+      <md-button ng-click="answer('useful')" style="margin-right:20px;">
+        בחר
+      </md-button>
+    </md-dialog-actions>
+  </form>
+</md-dialog>
