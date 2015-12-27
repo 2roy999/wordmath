@@ -3,38 +3,40 @@ import '../problems/problems.dialog';
 
 angular
   .module('wordmath')
-  .directive('wmHeader', problemDirective);
+  .directive('wmHeader', headerDirective);
 
 /* @ngInject */
-function problemDirective () {
+function headerDirective () {
   return {
     restrict: 'EA',
     templateUrl: 'app/components/header/header.html',
+    scope: {},
     controllerAs: 'vm',
-    controller: Controller
+    controller: controller
   };
-}
 
-/* @ngInject */
-function Controller(problemsDialog) {
-  let vm = this;
+  /* @ngInject */
+  function controller(problemsDialog) {
+    let vm = this;
 
-  vm.text = 'בחר בעיה!';
+    vm.text = 'משהו משהו????';
 
-  vm.showProblemsDialog = selectDialog;
+    vm.showProblemsDialog = selectDialog;
 
-  vm.showProblemsDialog();
+    //vm.showProblemsDialog();
 
-  function selectDialog(event) {
-    problemsDialog.show(event)
-      .then(selectionCompleted)
-      .catch(selectionCanceled);
+    function selectDialog(event) {
+      problemsDialog.show(event)
+        .then(selectionCompleted)
+        .catch(selectionCanceled);
 
-    function selectionCompleted(problem) {
-      vm.text = problem.text;
-    }
+      function selectionCompleted(problem) {
+        vm.text = problem.text;
+      }
 
-    function selectionCanceled() {
+      function selectionCanceled() {
+      }
     }
   }
 }
+

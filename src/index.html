@@ -26,9 +26,14 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <div layout="vertical" layout-fill>
-      <wm-header layout-fill></wm-header>
-    </div>
+    <md-content layout="column" style="overflow: auto; height: 100%">
+      <div>
+        <wm-header layout-fill></wm-header>
+      </div>
+      <div flex>
+        <wm-canvas></wm-canvas>
+      </div>
+    </md-content>
 
 
     <!-- build:js(src) scripts/vendor.js -->
